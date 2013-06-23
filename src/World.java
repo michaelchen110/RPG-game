@@ -10,8 +10,9 @@ public class World extends Map {
         minY = -2568;
         maxX = 100;
         maxY = 100;
-        gateway = new Map[6]; 				nx = new int[6]; 	ny = new int[6];
-        gateway[0] = new IceLand(this); 	nx[0] = 81; 		ny[0] = 94;
-
+        gateway = new Map[6];
+        sx = new int[6]; sy = new int[6]; dx = new int[6]; dy = new int[6];
+        gateway[0] = new IceLand(this);
+        sx[0] = 35; sy[0] = 11; dx[0] = 81; dy[0] = 94;
 	}
 }

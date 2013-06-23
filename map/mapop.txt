@@ -1,0 +1,10 @@
+0-can't access
+1-sail
+2-walk
+3-invisible
+4-entrance
+5-jump
+6-NPC
+7-special
+8-train
+9

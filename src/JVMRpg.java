@@ -11,7 +11,7 @@ public class JVMRpg {
 }
 
 class MainWindow extends JFrame {
-	private Map map;
+	private Map all, map;
 	private Player p1;
 	private int face = 2;
 	private boolean mini_map = false;
@@ -20,7 +20,8 @@ class MainWindow extends JFrame {
 		setSize(800,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		addKeyListener(new KeyList());
-		map = new World();
+		all = new World();
+		map = all;
 		p1 = new Boat();
 		screenAdjust(p1,map);
 	}
@@ -72,6 +73,13 @@ class MainWindow extends JFrame {
 			break;
 
 			default: break;
+		}
+		for(int i = 0; i <map.gateway.length; i++) {
+			if(p1.getX() == sx[i] && p1.getY() == sy[i]) {
+				p1.setX(dx[i]);
+				p1.setY(dy[i]);
+				map = gateway[i];
+			}
 		}
 		screenAdjust(p1,map);
 		System.out.println("x = " + p1.getX() + ", y = " + p1.getY());
