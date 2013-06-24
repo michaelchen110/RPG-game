@@ -1,14 +1,14 @@
 main:
-		javac -cp src/ -d bin/ -encoding UTF-8 src/TalkBoardDemo.java
-		javac -cp src/ -d bin/ src/JVMRpg.java
+		javac -cp src/ -d bin/ src/rpg/JVMRpg.java
 
 editor:
-		javac -cp src/ -d bin/ src/MapEditor.java
-		java -cp bin/ MapEditor
+		javac -cp src/ -d bin/ src/rpg/MapEditor.java
+		java -cp bin/ rpg/MapEditor
 
 run:
-		java -cp bin/ JVMRpg
+		java -cp bin/ rpg/JVMRpg
 
 demo:
-		java -cp bin/ TalkBoardDemo
+		javac -cp src/ -d bin/ -encoding UTF-8 src/rpg/JVMRpg.java
+		java -cp bin/ rpg/JVMRpg
 
