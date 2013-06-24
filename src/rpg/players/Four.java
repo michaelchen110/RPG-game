@@ -18,9 +18,13 @@ public class Four extends Player {
 		r[1] = getToolkit().getImage("img/npc/four/r.png");
 		r[2] = getToolkit().getImage("img/npc/four/r.png");
 		img = "img/npc/four/four.jpg";
-		word = new String[2];
+		word = new String[1];
 		word[0] = "npc/iceland/four_d.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord() {
+		state[9] = true;
+		return word[0];
 	}
 }

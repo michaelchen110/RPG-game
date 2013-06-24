@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.util.*;
+import rpg.players.*;
 
 public class iwell0506 extends Map {
 	public iwell0506(Map src) {
@@ -23,9 +23,9 @@ public class iwell0506 extends Map {
 		gateway = new Map[2];
 		sx = new int[2]; sy = new int[2]; dx = new int[2]; dy = new int[2];
 		gateway[0] = src;
-		sx[0] = 34; sy[0] = 47; dx[0] = 0; dy[0] = 0;
+		sx[0] = 34; sy[0] = 47; dx[0] = 92; dy[0] = 37;
 		gateway[1] = src;
-		sx[1] = 57; sy[1] = 54; dx[1] = 0; dy[1] = 0;
+		sx[1] = 57; sy[1] = 54; dx[1] = 85; dy[1] = 80;
 
 		npc_exist = true;
 		npc = new Player[2];

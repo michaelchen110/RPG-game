@@ -24,4 +24,11 @@ public class Juju extends Player {
 		x = a;
 		y = b;
 	}
+	public String getWord() {
+		if(!state[5]) {
+			return word[0];
+		}
+		state[7] = true;
+		return word[1];
+	}
 }

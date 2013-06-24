@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.lang.*;
+import java.io.*;
 import rpg.maps.*;
 import rpg.players.*;
 
@@ -23,6 +24,7 @@ class MainWindow extends JFrame {
 	private boolean mini_map = false, bag = false, menu1 = true, recive = false, init=true, alone=true;
 	private Image[] bagimg = new Image[2];
     private MusicPlayer mp4;
+	private File file;
 
 	public MainWindow() {
 		setTitle("JVMRpg");
@@ -41,6 +43,7 @@ class MainWindow extends JFrame {
 		state = 1;
 		p1 = new Boat(35,12);
 		screenAdjust(p1,map);
+		file = new File("record");	
 	}
 	private class KeyList extends KeyAdapter {  
 		public void keyPressed(KeyEvent k) {
@@ -54,7 +57,7 @@ class MainWindow extends JFrame {
                             Thread.sleep(3000);
                         }
                         catch (Exception e) {}
-						box = new TalkBoard("img/kenny.jpg", "doc/talk.txt", MainWindow.this);
+						box = new TalkBoard("img/kenny.jpg", "npc/kenny.txt", MainWindow.this);
 						menu1 = false;
 					    mp4 = new MusicPlayer("sound/loveyou.wav");
 					    mp4.cycle();
@@ -145,6 +148,12 @@ class MainWindow extends JFrame {
                         bag = !bag;
                         repaint();
                     }
+					else if (k.getKeyCode() == KeyEvent.VK_S){
+					/*	try{
+							RandomAccessFile raFile = new RandomAccessFile(file, "rw");
+							raFile.seek(0);
+						}*/
+					}
                     else if (k.getKeyCode() == KeyEvent.VK_LEFT){
                         if(init) init = !init;
                         move(3);  

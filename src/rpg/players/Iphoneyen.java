@@ -18,9 +18,17 @@ public class Iphoneyen extends Player {
 		r[1] = getToolkit().getImage("img/npc/iphoneyen/r.png");
 		r[2] = getToolkit().getImage("img/npc/iphoneyen/r.png");
 		img = "img/npc/iphoneyen/iphoneyen.jpg";
-		word = new String[1];
+		word = new String[2];
 		word[0]= "npc/iceland/iphoneyen_d.txt";
+		word[1]= "npc/iceland/iphoneyen1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord() {
+		if(!state[9]) {
+			return word[0];
+		}
+		state[10] = true;
+		return word[1];
 	}
 }

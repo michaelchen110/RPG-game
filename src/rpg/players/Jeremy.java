@@ -18,9 +18,17 @@ public class Jeremy extends Player {
 		r[1] = getToolkit().getImage("img/npc/jeremy/r.png");
 		r[2] = getToolkit().getImage("img/npc/jeremy/r.png");
 		img = "img/npc/jeremy/jeremy.jpg";
-		word = new String[1];
+		word = new String[2];
 		word[0]= "npc/iceland/jeremy_d.txt";
+		word[1]= "npc/iceland/jeremy1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord() {
+		if(!state[5]) {
+			return word[0];
+		}
+		state[6] = true;
+		return word[1];
 	}
 }

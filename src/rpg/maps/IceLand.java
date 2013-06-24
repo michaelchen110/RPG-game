@@ -21,8 +21,8 @@ public class IceLand extends Map {
 			System.out.print(ie);
 		}
 		//set gateway, map switching, source and destination's (x,y)
-		gateway = new Map[8];
-		sx = new int[8]; sy = new int[8]; dx = new int[8]; dy = new int[8];
+		gateway = new Map[16];
+		sx = new int[16]; sy = new int[16]; dx = new int[16]; dy = new int[16];
 		gateway[0] = src;
 		sx[0] = 81; sy[0] = 93; dx[0] = 35; dy[0] = 12;
 		gateway[1] = new iStatue(this);
@@ -35,10 +35,18 @@ public class IceLand extends Map {
 		sx[4] = 49; sy[4] = 6; dx[4] = 32; dy[4] = 46;
 		gateway[5] = new iwell0304(this);
 		sx[5] = 95; sy[5] = 17; dx[5] = 68; dy[5] = 54;
-		gateway[6] = new iwell0304(this);
+		gateway[6] = gateway[5];
 		sx[6] = 28; sy[6] = 17; dx[6] = 31; dy[6] = 54;
 		gateway[7] = new MagicSquare(this);
 		sx[7] = 48; sy[7] = 42; dx[7] = 42; dy[7] = 67;
+		gateway[8] = new iwell0506(this);
+		sx[8] = 92; sy[8] = 36; dx[8] = 34; dy[8] = 48;
+		gateway[9] = gateway[8];
+		sx[9] = 85; sy[9] = 81; dx[9] = 56; dy[9] = 54;
+		gateway[10] = new iPalace(this);
+		sx[10] = 65; sy[10] = 14; dx[10] = 44; dy[10] = 66;
+		gateway[11] = gateway[10];
+		sx[11] = 66; sy[11] = 14; dx[11] = 44; dy[11] = 66;
 		//set NPC
 		npc_exist = true;
 		npc = new Player[6];
