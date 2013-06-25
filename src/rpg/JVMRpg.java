@@ -30,6 +30,7 @@ class MainWindow extends JFrame {
 	private Image big;
 	private Image kite;
 	private Image fuck;
+    private int scene2;
 
 	public MainWindow() {
 		setTitle("JVMRpg");
@@ -50,6 +51,7 @@ class MainWindow extends JFrame {
 		all = new World();
 		map = all;
 		state = 1;
+        scene2 = 0;
 		p1 = new Boat();
 		screenAdjust(p1,map);
 		file = new File("record");	
@@ -110,13 +112,35 @@ class MainWindow extends JFrame {
                                 start.next();
                                 repaint();
 
-                                Thread.sleep(3500);
+                                Thread.sleep(3000);
                                 start.next();
                                 repaint();
-                                Thread.sleep(3500);
+
+                                scene2 = 1;
+                                Thread.sleep(3000);
                                 start.next();
                                 repaint();
-                                Thread.sleep(3500);
+                                Thread.sleep(3000);
+                                start.next();
+                                repaint();
+
+                                scene2 = 2;
+                                Thread.sleep(3000);
+                                start.next();
+                                repaint();
+
+                                scene2 = 3;
+                                Thread.sleep(3000);
+                                start.next();
+                                repaint();
+                                
+                                scene2 = 0;
+                                Thread.sleep(3000);
+                                start.next();
+                                repaint();
+                                MusicPlayer roar = new MusicPlayer("sound/roar.wav");
+                                roar.play();
+                                Thread.sleep(3000);
                                 start.next();
                                 repaint();
 
@@ -361,10 +385,38 @@ class MainWindow extends JFrame {
 			return;
         }
 		else if(isStart) {
-        	System.out.println("is start");
-            g.drawImage(black, 0, 0, this);
-            g.setColor(Color.WHITE);
-            start.paint(g);
+            if (scene2 == 0) {
+                System.out.println("is start");
+                g.drawImage(black, 0, 0, this);
+                g.setColor(Color.WHITE);
+                start.paint(g);
+            }
+            else if (scene2 == 1) {
+                MusicPlayer fight1 = new MusicPlayer("sound/fight1.wav");
+                fight1.play();
+                MusicPlayer fight2 = new MusicPlayer("sound/fight2.wav");
+                fight2.play();
+                g.drawImage(big, 0, 0, this);
+                g.setColor(Color.WHITE);
+                start.paint(g);
+                
+            }
+            else if (scene2 == 2) {
+                MusicPlayer fight3 = new MusicPlayer("sound/fight3.wav");
+                fight3.play();
+                g.drawImage(kite, 0, 0, this);
+                g.setColor(Color.WHITE);
+                start.paint(g);
+                
+            }
+            else if (scene2 == 3) {
+                MusicPlayer shit = new MusicPlayer("sound/fuck.wav");
+                shit.play();
+                g.drawImage(black, 0, 0, this);
+                g.drawImage(fuck, 0, 0, this);
+                g.setColor(Color.WHITE);
+                start.paint(g);
+            }
             return;
 		}
 		else {
