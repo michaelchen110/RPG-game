@@ -40,10 +40,10 @@ public class Map extends JPanel {
 	public Player search_npc(int x, int y){
 		for(int i=0;i<npc.length;i++){
 			if(npc[i].getX() == x && npc[i].getY() == y) {
-				System.out.println("found i = " + i);
 				return npc[i];
 			}
 		}
+		System.out.println("npc not found! error.");
 		return (new Player());
 	}
 }

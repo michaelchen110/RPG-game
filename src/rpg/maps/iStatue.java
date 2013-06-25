@@ -26,5 +26,9 @@ public class iStatue extends Map {
 		sx[0] = 70; sy[0] = 46; dx[0] = 10; dy[0] = 78;
 		gateway[1] = gateway[0];
 		sx[1] = 70; sy[1] = 53; dx[1] = 10; dy[1] = 81;
+		//set NPC
+		npc_exist = true;
+		npc = new Player[1];
+		npc[0] = new Random(37, 50);
 	}
-}
+		}

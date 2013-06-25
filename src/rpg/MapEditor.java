@@ -31,7 +31,7 @@ class Editor extends JFrame {
 		setSize(800,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		addKeyListener(new KeyList());
-		map = new iwell0506(null);
+		map = new HomeTown(null);
 		p1 = new Knight(0,0);
 		screenAdjust(p1,map);
 		set = new int[m*n];
@@ -246,6 +246,6 @@ class Editor extends JFrame {
 	}
 	public void paint(Graphics g) {
 		map.paint(g,this);
-		p1.paint(g,this,face);
+		p1.paint(g,this);
 	}
 }

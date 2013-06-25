@@ -25,10 +25,11 @@ public class Fishhead extends Player {
 		y = b;
 	}
 	public String getWord() {
-		if(!state[0]) {
+		if(!state[1] || !state[2]) {
 			state[0] = true;
 			return word[0];
 		}
+		state[3] = true;
 		return word[1];
 	}
 }

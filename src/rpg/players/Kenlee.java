@@ -20,7 +20,15 @@ public class Kenlee extends Player {
 		img = "img/npc/kenlee/kenlee.jpg";
 		word = new String[2];
 		word[0]= "npc/iceland/kenlee_d.txt";
+		word[1]= "npc/iceland/kenlee1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord() {
+		if(!state[11]) {
+			return word[0];
+		}
+		state[12] = true;
+		return word[1];
 	}
 }

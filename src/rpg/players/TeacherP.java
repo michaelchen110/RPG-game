@@ -25,7 +25,7 @@ public class TeacherP extends Player {
 		y = b;
 	}
 	public String getWord() {
-		if(!state[13]) {
+		if(!state[4] || !state[12]) {
 			return word[0];
 		}
 		state[13] = true;

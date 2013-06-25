@@ -17,22 +17,25 @@ public class JVMRpg {
 class MainWindow extends JFrame {
 	private StartMenu menu;
 	private Image background;
+	private Image black;
 	private TalkBoard box;
 	private Map all, map;
 	private Player p1;
 	private int state, pos;
-	private boolean mini_map = false, bag = false, menu1 = true, recive = false, init=true, alone=true;
+	private boolean mini_map = false, bag = false, menu1 = true, init=true, alone=true, isStart = true;
 	private Image[] bagimg = new Image[2];
     private MusicPlayer mp4;
 	private File file;
+    private Starting start;
 
 	public MainWindow() {
 		setTitle("JVMRpg");
 		setSize(800,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		background = getToolkit().getImage("img/enternce.jpg");
+        black = getToolkit().getImage("img/black.jpg");
 		menu = new StartMenu();
-		box = new TalkBoard("img/kenny.jpg", "doc/null.txt", this);
+		box = new TalkBoard("img/kenny.jpg", "npc/kenny.txt", this);
 		bagimg[0] = getToolkit().getImage("img/uncheckbag.jpg");
 		bagimg[1] = getToolkit().getImage("img/checkbag.jpg");
 		addKeyListener(new KeyList());
@@ -41,7 +44,7 @@ class MainWindow extends JFrame {
 		all = new World();
 		map = all;
 		state = 1;
-		p1 = new Boat(35,12);
+		p1 = new Boat();
 		screenAdjust(p1,map);
 		file = new File("record");	
 	}
@@ -51,17 +54,69 @@ class MainWindow extends JFrame {
 				if (k.getKeyCode() == KeyEvent.VK_ENTER) {
 					MusicPlayer mp3 = new MusicPlayer("sound/decide1.wav");
 					mp3.play();
-					if (menu.chosen() == 0) {
+                    if (menu.chosen() == 0) {
                         mp4.stop();
                         try {
                             Thread.sleep(3000);
                         }
                         catch (Exception e) {}
-						box = new TalkBoard("img/kenny.jpg", "npc/kenny.txt", MainWindow.this);
-						menu1 = false;
-					    mp4 = new MusicPlayer("sound/loveyou.wav");
-					    mp4.cycle();
-					}
+                        menu1 = false;
+                        isStart = true;
+                        start = new Starting();
+                        add(start);
+                        Thread thread = new Thread(new Runnable(){
+                                public void run(){
+                                try {
+                                Thread.sleep(5500);
+                                start.next();
+                                repaint();
+                                Thread.sleep(3000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(5000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(3000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(1700);
+                                start.next();
+                                repaint();
+                                Thread.sleep(2500);
+                                start.next();
+                                repaint();
+                                Thread.sleep(1500);
+                                start.next();
+                                repaint();
+                                Thread.sleep(6000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(2000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(1000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(6000);
+                                start.next();
+                                repaint();
+                                Thread.sleep(3500);
+                                start.next();
+                                repaint();
+                                Thread.sleep(6000);
+
+                                isStart = false;
+                                repaint();
+                                box = new TalkBoard("img/kenny.jpg", "npc/kenny.txt", MainWindow.this);
+                                mp4 = new MusicPlayer("sound/loveyou.wav");
+                                mp4.cycle();
+                                }
+                                catch (Exception e) {}
+                                }
+                        });
+                        thread.start();
+
+                    }
 					else if (menu.chosen() == 1) {
 
 					}
@@ -137,7 +192,7 @@ class MainWindow extends JFrame {
                             p.face = pF;
                             box = new TalkBoard(p.img, p.getWord(), MainWindow.this);
                             repaint();
-                            System.out.println("new talk");
+                            //System.out.println("new talk");
                         }
                     }
                     else if (k.getKeyCode() == KeyEvent.VK_M){
@@ -149,6 +204,8 @@ class MainWindow extends JFrame {
                         repaint();
                     }
 					else if (k.getKeyCode() == KeyEvent.VK_S){
+						p1.state[14] = true;
+						p1.state[17] = true;
 					/*	try{
 							RandomAccessFile raFile = new RandomAccessFile(file, "rw");
 							raFile.seek(0);
@@ -212,7 +269,7 @@ class MainWindow extends JFrame {
 			default: break;
 		}
 		//Switch map
-		if(map.op[p1.getY()*map.getmaxX() + p1.getX()] == 4){
+		if((map.op[p1.getY()*map.getmaxX() + p1.getX()] == 4)||(map.op[p1.getY()*map.getmaxX() + p1.getX()] == 5)) {
 			for(int i = 0; i <map.gateway.length; i++) {
 				if(p1.getX() == map.sx[i] && p1.getY() == map.sy[i]) {
 					p1.setX(map.dx[i]);
@@ -287,6 +344,13 @@ class MainWindow extends JFrame {
 			g.drawImage(background, 0, 0, this);
 			menu.paintComponent(g,this);
 			return;
+        }
+		else if(isStart) {
+        	System.out.println("is start");
+            g.drawImage(black, 0, 0, this);
+            g.setColor(Color.WHITE);
+            start.paint(g);
+            return;
 		}
 		else {
 			map.paint(g,this);
@@ -298,14 +362,14 @@ class MainWindow extends JFrame {
 				g.fillOval(240+32*p1.getX()/10,140+32*p1.getY()/10,8,8);
 			}
 			if(bag) {
-				if(recive)
+				if(p1.state[18])
 					g.drawImage(bagimg[1], 160, 120, this);
 				else
 					g.drawImage(bagimg[0], 160, 120, this);
 			}
 			if (box.isTalking()){
 				box.paintComponent(g);
-				System.out.println("print talkboard");
+				//System.out.println("print talkboard");
 			}
 		}
 		/*try {

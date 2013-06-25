@@ -18,9 +18,18 @@ public class Random extends Player {
 		r[1] = getToolkit().getImage("img/npc/random/r.png");
 		r[2] = getToolkit().getImage("img/npc/random/r.png");
 		img = "img/npc/random/random.jpg";
-		word = new String[1];
+		word = new String[2];
 		word[0]= "npc/iceland/random_d.txt";
+		word[1]= "npc/iceland/random1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord(){
+		if(!state[16]){
+			state[15] = true;
+			return word[0];
+		}
+		state[17] = true;
+		return word[1];
 	}
 }

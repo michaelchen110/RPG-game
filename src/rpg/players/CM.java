@@ -20,7 +20,15 @@ public class CM extends Player {
 		img = "img/npc/chenmeng/chenmeng.jpg";
 		word = new String[2];
 		word[0]= "npc/iceland/chenmeng_d.txt";
+		word[1]= "npc/iceland/chenmeng1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord(){
+		if(!state[15]){
+			return word[0];
+		}
+		state[16] = true;
+		return word[1];
 	}
 }

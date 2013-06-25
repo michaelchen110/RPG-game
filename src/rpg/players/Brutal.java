@@ -20,7 +20,15 @@ public class Brutal extends Player {
 		img = "img/npc/brutal/brutal.jpg";
 		word = new String[2];
 		word[0] = "npc/iceland/brutal_d.txt";
+		word[1] = "npc/iceland/brutal1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord() {
+		if(!state[0]) {
+			return word[0];
+		}
+		state[2] = true;
+		return word[1];
 	}
 }

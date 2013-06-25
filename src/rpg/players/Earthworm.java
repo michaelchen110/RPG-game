@@ -25,10 +25,10 @@ public class Earthworm extends Player {
 		y = b;
 	}
 	public String getWord() {
-		if(!state[0]) {
+		if(!state[3]) {
 			return word[0];
 		}
-		state[1] = true;
+		state[4] = true;
 		return word[1];
 	}
 }

@@ -20,7 +20,15 @@ public class Goat extends Player {
 		img = "img/npc/goat/goat.jpg";
 		word = new String[2];
 		word[0]= "npc/iceland/goat_d.txt";
+		word[1]= "npc/iceland/goat1.txt";
 		x = a;
 		y = b;
+	}
+	public String getWord() {
+		if(!state[0]) {
+			return word[0];
+		}
+		state[1] = true;
+		return word[1];
 	}
 }

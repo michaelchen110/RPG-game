@@ -10,7 +10,7 @@ public class Player extends JPanel {
 	protected Image[] r = new Image[3];
 	protected int x,y;
 	protected static int i = 0;
-	public static boolean[] state = new boolean[18];
+	public static boolean[] state = new boolean[19];
 	public int scrx,scry,face = 2;
 	public String img;
 	public String[] word;
