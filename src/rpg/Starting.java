@@ -42,7 +42,7 @@ public class Starting extends JPanel
         }
         else if (scene == 2) {
             g.setFont(new Font("標楷體", Font.BOLD, 32));
-            g.drawString(text2[line2], 100, 400);
+            g.drawString(text2[line2], 150, 530);
 
         }
     }
