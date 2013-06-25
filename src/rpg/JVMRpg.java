@@ -27,6 +27,9 @@ class MainWindow extends JFrame {
     private MusicPlayer mp4;
 	private File file;
     private Starting start;
+	private Image big;
+	private Image kite;
+	private Image fuck;
 
 	public MainWindow() {
 		setTitle("JVMRpg");
@@ -34,6 +37,9 @@ class MainWindow extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		background = getToolkit().getImage("img/enternce.jpg");
         black = getToolkit().getImage("img/black.jpg");
+		big = getToolkit().getImage("img/big.jpg");
+		kite = getToolkit().getImage("img/kite.jpg");
+		fuck = getToolkit().getImage("img/fuck.jpg");
 		menu = new StartMenu();
 		box = new TalkBoard("img/kenny.jpg", "npc/kenny.txt", this);
 		bagimg[0] = getToolkit().getImage("img/uncheckbag.jpg");
@@ -103,7 +109,16 @@ class MainWindow extends JFrame {
                                 Thread.sleep(3500);
                                 start.next();
                                 repaint();
-                                Thread.sleep(6000);
+
+                                Thread.sleep(3500);
+                                start.next();
+                                repaint();
+                                Thread.sleep(3500);
+                                start.next();
+                                repaint();
+                                Thread.sleep(3500);
+                                start.next();
+                                repaint();
 
                                 isStart = false;
                                 repaint();
