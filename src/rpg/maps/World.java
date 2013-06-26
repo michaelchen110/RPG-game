@@ -9,7 +9,7 @@ public class World extends Map {
 	public World() {
 		//get Image and mini image
 		bg = getToolkit().getImage("img/map/world.png");
-		mini = getToolkit().getImage("img/map/mini_world.jpg");
+		mini = getToolkit().getImage("img/map/mini_world.png");
 		//get op from file
 		try {
 			RandomAccessFile randomAccessFile = new RandomAccessFile("map/worldmap", "r");
