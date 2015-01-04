@@ -43,7 +43,7 @@ class MainWindow extends JFrame {
 		fuck = getToolkit().getImage("img/fuck.jpg");
 		menu = new StartMenu();
 		box = new TalkBoard("img/kenny.jpg", "npc/kenny.txt", this);
-		bagimg[0] = getToolkit().getImage("img/uncheckbag.png");
+		bagimg[0] = getToolkit().getImage("img/uncheckbag.jpg");
 		bagimg[1] = getToolkit().getImage("img/checkbag.jpg");
 		addKeyListener(new KeyList());
 		mp4 = new MusicPlayer("sound/OP.wav");
